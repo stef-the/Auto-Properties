@@ -8,21 +8,20 @@ master.grid_rowconfigure(0, weight=1)
 master.grid_columnconfigure(0, weight=1)
 
 n = tk.StringVar() 
-typePick = ttk.Combobox(master, width=18, textvariable=n) 
-typePick['values'] = ('item', 'enchantment', 'armor', 'elytra') 
-typePick.grid(column = 1, row = 2) 
-typePick.current()
+typeString = ttk.Combobox(master, width=18, textvariable=n) 
+typeString['values'] = ('item', 'enchantment', 'armor', 'elytra') 
+typeString.grid(column = 1, row = 2) 
+typeString.current()
 
 m = tk.StringVar() 
-itemPick = ttk.Combobox(master, width=18, textvariable=m) 
-itemPick['values'] = ('minecraft:acacia_door', 'minecraft:acacia_fence', 'minecraft:acacia_fence_gate', 'minecraft:acacia_stars',
+itemString = ttk.Combobox(master, width=18, textvariable=m) 
+itemString['values'] = ('minecraft:acacia_door', 'minecraft:acacia_fence', 'minecraft:acacia_fence_gate', 'minecraft:acacia_stars',
                     'minecraft:activator_rail', 'minecraft:air', 'minecraft:anvil', 'minecraft:apple', 'minecraft:armor_stand',
                     'minecraft:arrow', 'minecraft:baked_potato', 'minecraft:banner', 'minecraft:barrier', 'minecraft:beacon',
                     'minecraft:bed', 'minecraft:bedrock', 'minecraft:beef', 'minecraft:birch_door') 
-itemPick.grid(column = 1, row = 3) 
-itemPick.current() 
+itemString.grid(column = 1, row = 3) 
+itemString.current() 
 
-topText = Label(master, text="CIT - Generator", font='Helvetica 15 bold')
 typeText = Label(master, text='Type')
 itemText = Label(master, text='Item')
 imageText = Label(master, text='Image [.png]')
@@ -32,8 +31,8 @@ modelString = tk.Entry(master)
 loreString = tk.Entry(master)
 itemTitleString = tk.Entry(master)
 identString = tk.Entry(master)
+weightString = tk.Entry(master)
 
-topText.grid(row=1, column=0, sticky=W)
 typeText.grid(row=2, column=0, sticky=W)
 itemText.grid(row=3, column=0, sticky=W)
 imageText.grid(row=4, column=0, sticky=W)
@@ -43,15 +42,18 @@ modelString.grid(row=5, column=1)
 loreString.grid(row=6, column=1)
 itemTitleString.grid(row=7, column=1)
 identString.grid(row=8, column=1)
+weightString.grid(row=9, column=1)
 
 model = IntVar()
 Checkbutton(master, text="Model [.json]", variable=model).grid(row=5, sticky=W)
 lore = IntVar()
-Checkbutton(master, text="Lore", variable=lore).grid(row=6, sticky=W)
+Checkbutton(master, text="Item Lore", variable=lore).grid(row=6, sticky=W)
 itemTitle = IntVar()
 Checkbutton(master, text="Item Name", variable=itemTitle).grid(row=7, sticky=W)
 ident = IntVar()
 Checkbutton(master, text="Item ID", variable=ident).grid(row=8, sticky=W)
+weight = IntVar()
+Checkbutton(master, text="Item Weight", variable=weight).grid(row=9, sticky=W)
 
 image_name = ''
 model_name = ''
@@ -94,13 +96,24 @@ def fetchData():
             propertyFile = open(f'{image_name}.properties', 'w')
             print('Created')
 
-        propertyFile.write('pog')
+        propertyFile.write(f'type={item_type}\n')
+        propertyFile.write(f'items={item_name}\n')
+        propertyFile.write(f'texture=./{image_name}\n')
+
+        if model.get() == 1:
+            propertyFile.write(f'model=./{model_name}\n')
+        elif lore.get() == 1:
+            propertyFile.write(f'nbt.display.Lore.*=ipattern:*{lore_name}*\n')
+        elif itemTitle.get() == 1:
+            propertyFile.write(f'nbt.display.Name=ipattern:*{item_name}*\n')
+        elif ident.get() == 1:
+            propertyFile.write(f'nbt.EtraAttributes.id={item_id}\n')
         propertyFile.close()
         print('Success')
     except:
         print('Error while creating file, look for:\n- blank name\n- duplicate file')
 
 compileBtn = tk.Button(master, text='Create File', command=fetchData)
-compileBtn.grid(row=9, column=0, sticky=W)
+compileBtn.grid(row=10, column=0, sticky=W)
 
 master.mainloop()
