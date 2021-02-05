@@ -2,20 +2,28 @@ import tkinter as tk
 from tkinter import *
 
 master = Tk()
-tk.Label(master).grid(row=1)
-tk.Label(master).grid(row=3)
+master.grid_rowconfigure(0, weight=1)
+master.grid_columnconfigure(0, weight=1)
 
+imageText = Label(master, text='Image [.png]')
+tk.Label(master).grid(row=2)
+tk.Label(master).grid(row=3)
+tk.Label(master).grid(row=5)
+
+imageString = tk.Entry(master)
 modelString = tk.Entry(master)
 loreString = tk.Entry(master)
 
-modelString.grid(row=1, column=0)
-loreString.grid(row=3, column=0)
-
+imageText.grid(row=2, column=0)
+imageString.grid(row=2, column=1)
+modelString.grid(row=3, column=1)
+loreString.grid(row=5, column=1)
 
 model = IntVar()
-Checkbutton(master, text="Model", variable=model).grid(row=0, sticky=W)
-lore = IntVar()
-Checkbutton(master, text="Lore", variable=lore).grid(row=2, sticky=W)
+Checkbutton(master, text="Model [.json]", variable=model).grid(row=3, sticky=W)
+l
+ore = IntVar()
+Checkbutton(master, text="Lore", variable=lore).grid(row=5, sticky=W)
 
 master.mainloop()
 
