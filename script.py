@@ -1,7 +1,9 @@
 import tkinter as tk
+from tkinter import simpledialog
 from tkinter import *
 
 master = Tk()
+
 master.grid_rowconfigure(0, weight=1)
 master.grid_columnconfigure(0, weight=1)
 
