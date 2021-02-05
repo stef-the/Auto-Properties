@@ -49,7 +49,11 @@ lore_name = ''
 def fetchData():
     print('fetching data...')
     image_name = imageString.get()
+    item_type = typeString.get()
+    item_name = itemString.get()
     print(f'Image Name: >{image_name}<')
+    print(f'Item Type Name: >{item_type}<')
+    print(f'Item Name: >{item_name}<')
 
     if model.get() == 1:
         model_name = modelString.get()
@@ -77,7 +81,7 @@ def fetchData():
         else:
             propertyFile = open(f'{image_name}.properties', 'w')
             print('Created')
-            
+
         propertyFile.write('pog')
         propertyFile.close()
         print('Success')
