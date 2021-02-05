@@ -19,5 +19,7 @@ Create an issue on the GitHub
 
 ### Checklist
 Fill `item` dropdown
+
 Improve UI formatting and color
+
 Create first release
