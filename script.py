@@ -21,9 +21,11 @@ loreString.grid(row=5, column=1)
 
 model = IntVar()
 Checkbutton(master, text="Model [.json]", variable=model).grid(row=3, sticky=W)
-l
-ore = IntVar()
+lore = IntVar()
 Checkbutton(master, text="Lore", variable=lore).grid(row=5, sticky=W)
 
-master.mainloop()
+def fetchData():
+    print('fetching data')
+runBtn = tk.Button(master, text='pog', command = fetchData())
 
+master.mainloop()
