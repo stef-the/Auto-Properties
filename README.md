@@ -14,6 +14,6 @@ Started Feb. 5, 2021
 
 ### Checklist
 Automatically fill in content based on inputs
-Add dropdowns for `Item Type` and `Item`
+Fill `item` dropdown
 Improve UI formatting and color
 Create first release

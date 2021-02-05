@@ -1,19 +1,32 @@
 import tkinter as tk
-from tkinter import simpledialog
+from tkinter import ttk
 from tkinter import *
 
 master = Tk()
-
+master.title('CIT - Generator')
 master.grid_rowconfigure(0, weight=1)
 master.grid_columnconfigure(0, weight=1)
+
+n = tk.StringVar() 
+typePick = ttk.Combobox(master, width=18, textvariable=n) 
+typePick['values'] = ('item', 'enchantment', 'armor', 'elytra') 
+typePick.grid(column = 1, row = 2) 
+typePick.current()
+
+m = tk.StringVar() 
+itemPick = ttk.Combobox(master, width=18, textvariable=m) 
+itemPick['values'] = ('minecraft:acacia_door', 'minecraft:acacia_fence', 'minecraft:acacia_fence_gate', 'minecraft:acacia_stars',
+                    'minecraft:activator_rail', 'minecraft:air', 'minecraft:anvil', 'minecraft:apple', 'minecraft:armor_stand',
+                    'minecraft:arrow', 'minecraft:baked_potato', 'minecraft:banner', 'minecraft:barrier', 'minecraft:beacon',
+                    'minecraft:bed', 'minecraft:bedrock', 'minecraft:beef', 'minecraft:birch_door') 
+itemPick.grid(column = 1, row = 3) 
+itemPick.current() 
 
 topText = Label(master, text="CIT - Generator", font='Helvetica 15 bold')
 typeText = Label(master, text='Type')
 itemText = Label(master, text='Item')
 imageText = Label(master, text='Image [.png]')
 
-typeString = tk.Entry(master)
-itemString = tk.Entry(master)
 imageString = tk.Entry(master)
 modelString = tk.Entry(master)
 loreString = tk.Entry(master)
@@ -25,9 +38,6 @@ typeText.grid(row=2, column=0, sticky=W)
 itemText.grid(row=3, column=0, sticky=W)
 imageText.grid(row=4, column=0, sticky=W)
 
-
-typeString.grid(row=2, column=1)
-itemString.grid(row=3, column=1)
 imageString.grid(row=4, column=1)
 modelString.grid(row=5, column=1)
 loreString.grid(row=6, column=1)
