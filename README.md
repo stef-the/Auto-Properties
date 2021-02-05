@@ -10,7 +10,7 @@ Started Feb. 5, 2021
 ### What does it do?
 - Gives you input boxes for `type`, `item`, and `image`. Toggleable input boxes for `model`, `lore`, `item name`, and `item ID`.
 
-- Creates a `.properties` file matching image name, with inpus incorporated into it.
+- Creates a `.properties` file matching image name, with inptus incorporated into it.
 
 ## Support
 Contact `_stefthedoggo#1698` on discord **or** create an issue on the GitHub
