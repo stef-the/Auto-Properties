@@ -1,5 +1,5 @@
 # Auto-Properties
-Creates a .properties file for your Optifine CIT, based off of file input, to make texture packs a little easier to make.
+Creates a .properties file for your Optifine CIT, based off of file input, to make texture packs a little easier to make. The script was built on **Python 3.8.2** and the GUI module used is **tkinter** (universally installed into python).
 
 Started Feb. 5, 2021
 ### How do I use it?
