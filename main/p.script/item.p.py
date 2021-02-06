@@ -73,15 +73,15 @@ def fetchData():
         model_name = modelString.get()
         print(f'Model Name: >{model_name}<')
 
-    elif lore.get() == 1:
+    if lore.get() == 1:
         lore_name = loreString.get()
         print(f'Lore: >{lore_name}<')
 
-    elif itemTitle.get() == 1:
+    if itemTitle.get() == 1:
         item_name = itemTitleString.get()
         print(f'Item Title: >{item_name}<')
 
-    elif ident.get() == 1:
+    if ident.get() == 1:
         item_id = identString.get()
         print(f'Item ID: >{item_id}<')
 
@@ -102,11 +102,11 @@ def fetchData():
 
         if model.get() == 1:
             propertyFile.write(f'model=./{model_name}\n')
-        elif lore.get() == 1:
+        if lore.get() == 1:
             propertyFile.write(f'nbt.display.Lore.*=ipattern:*{lore_name}*\n')
-        elif itemTitle.get() == 1:
+        if itemTitle.get() == 1:
             propertyFile.write(f'nbt.display.Name=ipattern:*{item_name}*\n')
-        elif ident.get() == 1:
+        if ident.get() == 1:
             propertyFile.write(f'nbt.EtraAttributes.id={item_id}\n')
         propertyFile.close()
         print('Success')
