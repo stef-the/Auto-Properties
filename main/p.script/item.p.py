@@ -3,7 +3,7 @@ from tkinter import ttk
 from tkinter import *
 
 master = Tk()
-master.title('CIT - Generator')
+master.title('CIT Generator - Items')
 master.grid_rowconfigure(0, weight=1)
 master.grid_columnconfigure(0, weight=1)
 
