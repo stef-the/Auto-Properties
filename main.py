@@ -21,18 +21,27 @@ def runRod():
 def runArmor():
     exec(armorSc.text)
 
-master = Tk()
-master.title('select mode')
-master.grid_rowconfigure(0, weight=1)
-master.grid_columnconfigure(0, weight=1)
+def run():
+    master = Tk()
+    master.title('select mode')
+    master.grid_rowconfigure(0, weight=1)
+    master.grid_columnconfigure(0, weight=1)
 
-itemBtn = tk.Button(master, text=' Item', command=runItem)
-itemBtn.grid(row=1, column=1, sticky=W)
-bowBtn = tk.Button(master, text=' Bow  ', command=runBow)
-bowBtn.grid(row=1, column=2, sticky=W)
-rodBtn = tk.Button(master, text=' Rod ', command=runRod)
-rodBtn.grid(row=2, column=1, sticky=W)
-armorBtn = tk.Button(master, text='Armor', command=runArmor)
-armorBtn.grid(row=2, column=2, sticky=W)
+    typeText = Label(master, text='Close')
+    typeText.grid(row=2, column=1, sticky=E)
 
-master.mainloop()
+    itemBtn = tk.Button(master, text=' Item', command=runItem)
+    itemBtn.grid(row=1, column=1, sticky=W)
+    bowBtn = tk.Button(master, text=' Bow  ', command=runBow)
+    bowBtn.grid(row=1, column=2, sticky=W)
+    rodBtn = tk.Button(master, text=' Rod ', command=runRod)
+    rodBtn.grid(row=1, column=3, sticky=W)
+    armorBtn = tk.Button(master, text='Armor', command=runArmor)
+    armorBtn.grid(row=1, column=4, sticky=W)
+
+    closeBtn = tk.Button(master, text='⌧', command=master.destroy)
+    closeBtn.grid(row=2, column=2, sticky=W)
+
+    master.mainloop()
+
+run()
