@@ -60,7 +60,7 @@ model_name = ''
 lore_name = ''
 
 
-def fetchData():
+def compileData():
     print('fetching data...')
     image_name = imageString.get()
     item_type = typeString.get()
@@ -114,7 +114,7 @@ def fetchData():
     except:
         print('Error while creating file, look for:\n- blank name\n- duplicate file')
 
-compileBtn = tk.Button(master, text='Create File', command=fetchData)
+compileBtn = tk.Button(master, text='Create File', command=compileData)
 compileBtn.grid(row=10, column=0, sticky=W)
 
 master.mainloop()

@@ -58,7 +58,7 @@ model_name = ''
 lore_name = ''
 
 
-def fetchData():
+def compileData():
     print('fetching data...')
     image_name_0 = bowString0.get()
     image_name_1 = bowString1.get()
@@ -118,7 +118,7 @@ def fetchData():
         if model.get() == 1:
             propertyFile.write(f'model=./{model_name}\n')
         if lore.get() == 1:
-            propertyFile.write(f'nbt.display.Lore.*=ipattern:*{lore_name}*\n')
+            propertyFile.write(f'nbt.display.Lore=ipattern:*{lore_name}*\n')
         if itemTitle.get() == 1:
             propertyFile.write(f'nbt.display.Name=ipattern:*{item_name}*\n')
         if ident.get() == 1:
@@ -126,9 +126,9 @@ def fetchData():
         propertyFile.close()
         print('Success')
     except:
-        print('Error while creating file, look for:\n- blank name\n- duplicate file')
+        print('Error while creating file, look for:\n- blank name\n- duplicate file\n- strange or duplicate naming')
 
-compileBtn = tk.Button(master, text='Create File', command=fetchData)
+compileBtn = tk.Button(master, text='Create File', command=compileData)
 compileBtn.grid(row=9, column=0, sticky=W)
 
 master.mainloop()
