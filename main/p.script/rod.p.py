@@ -7,26 +7,23 @@ master.title('CIT Generator - Rods')
 master.grid_rowconfigure(0, weight=1)
 master.grid_columnconfigure(0, weight=1)
 
-m = tk.StringVar() 
-itemString = ttk.Combobox(master, width=18, textvariable=m) 
-itemString['values'] = ('minecraft:fishing_rod') 
-itemString.grid(column = 1, row = 2) 
-itemString.current() 
 
-itemText = Label(master, text='Item')
-imageText = Label(master, text='Image [.png]')
+castText = Label(master, text='Cast [.png]')
+uncastText = Label(master, text='Uncast [.png')
 
-imageString = tk.Entry(master)
+castString = tk.Entry(master)
+uncastString = tk.Entry(master)
 modelString = tk.Entry(master)
 loreString = tk.Entry(master)
 itemTitleString = tk.Entry(master)
 identString = tk.Entry(master)
 weightString = tk.Entry(master)
 
-itemText.grid(row=2, column=0, sticky=W)
-imageText.grid(row=3, column=0, sticky=W)
+castText.grid(row=2, column=0, sticky=W)
+uncastText.grid(row=3, column=0, sticky=W)
 
-imageString.grid(row=3, column=1)
+castString.grid(row=2, column=1)
+uncastString.grid(row=3, column=1)
 modelString.grid(row=4, column=1)
 loreString.grid(row=5, column=1)
 itemTitleString.grid(row=6, column=1)
@@ -51,11 +48,12 @@ lore_name = ''
 
 def fetchData():
     print('fetching data...')
-    image_name = imageString.get()
-    item_name = itemString.get()
-    print(f'Image Name: >{image_name}<')
-    print(f'Item Type Name: >{item_type}<')
-    print(f'Item Name: >{item_name}<')
+    cast_name = castString.get()
+    uncast_name = uncastString.get()
+    print(f'Cast Texture Name: >{cast_name}<')
+    print(f'Uncast Texture Name: >{uncast_name}<')
+    print(f'Item Type Name: >item<')
+    print(f'Item Name: >minecraft:fishing_rod<')
 
     if model.get() == 1:
         model_name = modelString.get()
@@ -78,19 +76,24 @@ def fetchData():
     
     try:
         if '.png' in image_name:
-            propertyFile = open(f'{image_name.replace(".png", ".properties")}', 'w')
+            propertyFile = open(f'{cast_name.replace(".png", ".properties")}', 'w')
             print('Created without ".png"')
         else:
-            propertyFile = open(f'{image_name}.properties', 'w')
+            propertyFile = open(f'{cast_name}.properties', 'w')
+            cast_name += '.png'
             print('Created')
+        if not '.png' in  uncast_name:
+            uncast_name += '.png'
 
-        propertyFile.write(f'items={item_name}\n')
-        propertyFile.write(f'texture=./{image_name}\n')
+        propertyFile.write(f'type=item\n')
+        propertyFile.write(f'items=minecraft:fishing_rod\n')
+        propertyFile.write(f'texture=./{cast_name}\n')
+        propertyFile.write(f'texture.fishing_rod_cast=./{uncast_name}\n')
 
         if model.get() == 1:
             propertyFile.write(f'model=./{model_name}\n')
         if lore.get() == 1:
-            propertyFile.write(f'nbt.display.Lore.*=ipattern:*{lore_name}*\n')
+            propertyFile.write(f'nbt.display.Lore=ipattern:*{lore_name}*\n')
         if itemTitle.get() == 1:
             propertyFile.write(f'nbt.display.Name=ipattern:*{item_name}*\n')
         if ident.get() == 1:
