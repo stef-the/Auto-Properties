@@ -7,8 +7,15 @@ master.title('CIT Generator - Bow')
 master.grid_rowconfigure(0, weight=1)
 master.grid_columnconfigure(0, weight=1)
 
+armorKindText = Label(master, text='Armor')
 armorText0 = Label(master, text='Inside Layer')
 armorText1 = Label(master, text='Outside Layer')
+
+m = tk.StringVar() 
+itemString = ttk.Combobox(master, width=18, textvariable=m) 
+itemString['values'] = ('Leather Armor', 'Chainmail Armor', 'Iron Armor', 'Gold Armor', 'Diamond Armor') 
+itemString.grid(column = 1, row = 1) 
+itemString.current() 
 
 armorLayer0 = tk.Entry(master)
 armorLayer1 = tk.Entry(master)
@@ -19,11 +26,11 @@ itemTitleString = tk.Entry(master)
 identString = tk.Entry(master)
 weightString = tk.Entry(master)
 
-armorText0.grid(row=0, column=0, sticky=W)
-armorText1.grid(row=1, column=0, sticky=W)
-
-armorLayer0.grid(row=0, column=1)
-armorLayer1.grid(row=1, column=1)
+armorKindText.grid(row=1, column=0, sticky=W)
+armorText0.grid(row=2, column=0, sticky=W)
+armorText1.grid(row=3, column=0, sticky=W)
+armorLayer0.grid(row=2, column=1)
+armorLayer1.grid(row=3, column=1)
 
 modelString.grid(row=4, column=1)
 loreString.grid(row=5, column=1)
