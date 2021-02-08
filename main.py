@@ -9,6 +9,8 @@ url2 = 'https://raw.githubusercontent.com/stef-the/Auto-Properties/master/main/p
 bowSc = requests.get(url2)
 url3 = 'https://raw.githubusercontent.com/stef-the/Auto-Properties/master/main/p.script/rod.p.py'
 rodSc = requests.get(url3)
+url4 = 'https://raw.githubusercontent.com/stef-the/Auto-Properties/master/main/p.script/rod.p.py'
+armorSc = requests.get(url4)
 
 def runItem():
     exec(itemSc.text)
@@ -16,6 +18,8 @@ def runBow():
     exec(bowSc.text)
 def runRod():
     exec(rodSc.text)
+def runArmor():
+    exec('print("pog")')
 
 master = Tk()
 master.title('select mode')
@@ -26,7 +30,10 @@ itemBtn = tk.Button(master, text='Item', command=runItem)
 itemBtn.grid(row=1, column=1, sticky=W)
 bowBtn = tk.Button(master, text='Bow', command=runBow)
 bowBtn.grid(row=1, column=2, sticky=W)
+
 rodBtn = tk.Button(master, text='Rod', command=runRod)
-rodBtn.grid(row=1, column=3, sticky=W)
+rodBtn.grid(row=2, column=1, sticky=W)
+armorBtn = tk.Button(master, text='Armor', command=runArmor)
+armorBtn.grid(row=2, column=2, sticky=W)
 
 master.mainloop()
