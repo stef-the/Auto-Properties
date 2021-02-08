@@ -78,8 +78,8 @@ def fetchData():
         print(f'Lore: >{lore_name}<')
 
     if itemTitle.get() == 1:
-        item_name = itemTitleString.get()
-        print(f'Item Title: >{item_name}<')
+        item_title = itemTitleString.get()
+        print(f'Item Title: >{item_title}<')
 
     if ident.get() == 1:
         item_id = identString.get()
@@ -94,6 +94,7 @@ def fetchData():
             print('Created without ".png"')
         else:
             propertyFile = open(f'{image_name}.properties', 'w')
+            image_name += '.png'
             print('Created')
 
         propertyFile.write(f'type={item_type}\n')
@@ -103,9 +104,9 @@ def fetchData():
         if model.get() == 1:
             propertyFile.write(f'model=./{model_name}\n')
         if lore.get() == 1:
-            propertyFile.write(f'nbt.display.Lore.*=ipattern:*{lore_name}*\n')
+            propertyFile.write(f'nbt.display.Lore=ipattern:*{lore_name}*\n')
         if itemTitle.get() == 1:
-            propertyFile.write(f'nbt.display.Name=ipattern:*{item_name}*\n')
+            propertyFile.write(f'nbt.display.Name=ipattern:*{item_title}*\n')
         if ident.get() == 1:
             propertyFile.write(f'nbt.EtraAttributes.id={item_id}\n')
         propertyFile.close()
