@@ -10,9 +10,24 @@ Started Feb. 5, 2021
 - Check off boxes with extra info you would like to put in (model, item name, item ID, lore elements)
 
 ### What does it do?
-- Gives you input boxes for `type`, `item`, and `image`. Toggleable input boxes for `model`, `lore`, `item name`, and `item ID`.
+- Item:
+  - Input boxes for `type`, `item`, and `image`. 
+  - Toggleable input boxes for `model`, `lore`, `item name`, and `item ID`.
+  
+- Bow:
+  - Input boxes for bow frames (0, 1, 2)
+  - Input box for standby bow
+  - Toggleable input boxes for `model`, `lore`, `item name`, and `item ID`.
+  
+- Fishing Rod:
+  - Input boxes for Cast/Uncast rod frames
+  - Toggleable input boxes for `model`, `lore`, `item name`, and `item ID`.
+  
+- Armor:
+  - Input boxes for Layer 1 / Layer 2 of armor
+  - Toggleable input boxes for `model`, `lore`, `item name`, and `item ID`.
 
-- Creates a `.properties` file matching image name, with inpus incorporated into it.
+- Creates a `.properties` file matching image name, with inputs incorporated into it.
 
 ## Support
 - Contact `_stefthedoggo#1698` on discord
