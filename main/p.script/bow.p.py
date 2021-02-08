@@ -3,31 +3,36 @@ from tkinter import ttk
 from tkinter import *
 
 master = Tk()
-master.title('CIT Generator - Bows')
+master.title('CIT Generator - Bow')
 master.grid_rowconfigure(0, weight=1)
 master.grid_columnconfigure(0, weight=1)
 
+bowText0 = Label(master, text='Standby')
+bowText1 = Label(master, text='Frame 1')
+bowText2 = Label(master, text='Frame 2')
+bowText3 = Label(master, text='Frame 3')
 
-m = tk.StringVar() 
-itemString = ttk.Combobox(master, width=18, textvariable=m) 
-itemString['values'] = ('minecraft:bow') 
-itemString.grid(column = 1, row = 2) 
-itemString.current() 
+bowString0 = tk.Entry(master)
+bowString1 = tk.Entry(master)
+bowString2 = tk.Entry(master)
+bowString3 = tk.Entry(master)
 
-itemText = Label(master, text='Item')
-imageText = Label(master, text='Image [.png]')
-
-imageString = tk.Entry(master)
 modelString = tk.Entry(master)
 loreString = tk.Entry(master)
 itemTitleString = tk.Entry(master)
 identString = tk.Entry(master)
 weightString = tk.Entry(master)
 
-itemText.grid(row=2, column=0, sticky=W)
-imageText.grid(row=3, column=0, sticky=W)
+bowText0.grid(row=0, column=0, sticky=W)
+bowText1.grid(row=1, column=0, sticky=W)
+bowText2.grid(row=2, column=0, sticky=W)
+bowText3.grid(row=3, column=0, sticky=W)
 
-imageString.grid(row=3, column=1)
+bowString0.grid(row=0, column=1)
+bowString1.grid(row=1, column=1)
+bowString2.grid(row=2, column=1)
+bowString3.grid(row=3, column=1)
+
 modelString.grid(row=4, column=1)
 loreString.grid(row=5, column=1)
 itemTitleString.grid(row=6, column=1)
@@ -45,18 +50,27 @@ Checkbutton(master, text="Item ID", variable=ident).grid(row=7, sticky=W)
 weight = IntVar()
 Checkbutton(master, text="Item Weight", variable=weight).grid(row=8, sticky=W)
 
-image_name = ''
+image_name_0 = ''
+image_name_1 = ''
+image_name_2 = ''
+image_name_3 = ''
 model_name = ''
 lore_name = ''
 
 
 def fetchData():
     print('fetching data...')
-    image_name = imageString.get()
-    item_name = itemString.get()
-    print(f'Image Name: >{image_name}<')
-    print(f'Item Type Name: >{item_type}<')
-    print(f'Item Name: >{item_name}<')
+    image_name_0 = bowString0.get()
+    image_name_1 = bowString1.get()
+    image_name_2 = bowString2.get()
+    image_name_3 = bowString3.get()
+
+    print(f'Standby Name: >{image_name_0}<')
+    print(f'Frame 1 Name: >{image_name_1}<')
+    print(f'Frame 2 Name: >{image_name_2}<')
+    print(f'Frame 3 Name: >{image_name_3}<')
+    print(f'Item Type Name: >item<')
+    print(f'Item Name: >minecraft:bow<')
 
     if model.get() == 1:
         model_name = modelString.get()
@@ -78,15 +92,28 @@ def fetchData():
     print('Starting file creation...')
     
     try:
-        if '.png' in image_name:
-            propertyFile = open(f'{image_name.replace(".png", ".properties")}', 'w')
+        if '.png' in image_name_0:
+            propertyFile = open(f'{image_name_0.replace(".png", ".properties")}', 'w')
             print('Created without ".png"')
         else:
-            propertyFile = open(f'{image_name}.properties', 'w')
+            propertyFile = open(f'{image_name_0}.properties', 'w')
+            image_name_0 += '.png'
             print('Created')
+        
+        if not '.png' in image_name_1:
+            image_name_1 += '.png'
+        if not '.png' in image_name_2:
+            image_name_2 += '.png'
+        if not '.png' in image_name_3:
+            image_name_3 += '.png'
 
-        propertyFile.write(f'items={item_name}\n')
-        propertyFile.write(f'texture=./{image_name}\n')
+
+        propertyFile.write(f'type=item\n')
+        propertyFile.write(f'items=minecraft:bow\n')
+        propertyFile.write(f'texture.bow_standby=./{image_name_0}\n')
+        propertyFile.write(f'texture.bow_pulling_0=./{image_name_1}\n')
+        propertyFile.write(f'texture.bow_pulling_1=./{image_name_2}\n')
+        propertyFile.write(f'texture.bow_pulling_2=./{image_name_3}\n')
 
         if model.get() == 1:
             propertyFile.write(f'model=./{model_name}\n')
