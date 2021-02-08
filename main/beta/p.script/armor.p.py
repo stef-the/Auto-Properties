@@ -118,5 +118,7 @@ def compileData():
 
 compileBtn = tk.Button(master, text='Create File', command=compileData)
 compileBtn.grid(row=9, column=0, sticky=W)
+closeBtn = tk.Button(master, text='⌧', command=master.destroy)
+closeBtn.grid(row=9, column=1, sticky=W)
 
 master.mainloop()
