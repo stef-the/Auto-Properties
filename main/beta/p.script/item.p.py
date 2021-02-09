@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import *
+import requests
 
 master = Tk()
 master.title('CIT Generator - Items')
@@ -9,16 +10,17 @@ master.grid_columnconfigure(0, weight=1)
 
 n = tk.StringVar() 
 typeString = ttk.Combobox(master, width=18, textvariable=n) 
-typeString['values'] = ('item', 'enchantment', 'armor', 'elytra') 
+url1 = 'https://raw.githubusercontent.com/stef-the/Auto-Properties/master/REPO/info/types.json'
+typesc = requests.get(url1)
+exec(f"typeString['values'] = {typesc.text}")
 typeString.grid(column = 1, row = 2) 
 typeString.current()
 
 m = tk.StringVar() 
 itemString = ttk.Combobox(master, width=18, textvariable=m) 
-itemString['values'] = ('minecraft:acacia_door', 'minecraft:acacia_fence', 'minecraft:acacia_fence_gate', 'minecraft:acacia_stars',
-                    'minecraft:activator_rail', 'minecraft:air', 'minecraft:anvil', 'minecraft:apple', 'minecraft:armor_stand',
-                    'minecraft:arrow', 'minecraft:baked_potato', 'minecraft:banner', 'minecraft:barrier', 'minecraft:beacon',
-                    'minecraft:bed', 'minecraft:bedrock', 'minecraft:beef', 'minecraft:birch_door') 
+url2 = 'https://raw.githubusercontent.com/stef-the/Auto-Properties/master/REPO/info/items.json'
+itemsc = requests.get(url2)
+exec(f"itemString['values'] = {itemsc.text}")
 itemString.grid(column = 1, row = 3) 
 itemString.current() 
 

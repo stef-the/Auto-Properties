@@ -8,11 +8,8 @@ master.title('select mode')
 master.grid_rowconfigure(0, weight=1)
 master.grid_columnconfigure(0, weight=1)
 
-typeText = Label(master, text='Close')
-typeText.grid(row=2, column=1, sticky=E)
-
 beta = IntVar()
-Checkbutton(master, text="Use Beta", variable=beta).grid(row=2, column=3, sticky=W)
+Checkbutton(master, text="Beta", variable=beta).grid(row=2, column=1, sticky=E)
 
 def runItem():
     if beta.get() == 0:
@@ -53,6 +50,6 @@ armorBtn = tk.Button(master, text='Armor', command=runArmor)
 armorBtn.grid(row=1, column=4, sticky=W)
 
 closeBtn = tk.Button(master, text='⌧', command=master.destroy)
-closeBtn.grid(row=2, column=2, sticky=W)
+closeBtn.grid(row=2, column=4, sticky=E)
 
 master.mainloop()
