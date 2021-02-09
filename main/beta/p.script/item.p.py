@@ -61,7 +61,6 @@ image_name = ''
 model_name = ''
 lore_name = ''
 
-
 def compileData():
     print('fetching data...')
     image_name = imageString.get()
