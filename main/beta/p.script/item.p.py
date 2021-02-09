@@ -3,6 +3,14 @@ from tkinter import ttk
 from tkinter import *
 import requests
 
+global imageString 
+global typeString
+global itemString
+global modelString
+global loreString
+global itemTitleString
+global identString
+
 master = Tk()
 master.title('CIT Generator - Items')
 master.grid_rowconfigure(0, weight=1)
@@ -57,11 +65,6 @@ Checkbutton(master, text="Item ID", variable=ident).grid(row=8, sticky=W)
 weight = IntVar()
 Checkbutton(master, text="Item Weight", variable=weight).grid(row=9, sticky=W)
 
-global imageString 
-global typeString
-global itemString
-global modelString
-global loreString
 
 image_name = ''
 model_name = ''
