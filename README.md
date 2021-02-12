@@ -23,20 +23,27 @@ Started Feb. 5, 2021
   - Input boxes for Cast/Uncast rod frames
   - Toggleable input boxes for `model`, `lore`, `item name`, and `item ID`.
   
-- Armor:
+- Armor: (WIP - DO NOT USE)
   - Input boxes for Layer 1 / Layer 2 of armor
-  - Toggleable input boxes for `model`, `lore`, `item name`, and `item ID`.
 
 - Creates a `.properties` file matching image name, with inputs incorporated into it.
 
 ## Support
 - Contact `_stefthedoggo#1698` on discord
 
-- Create an issue on the GitHub
+- Create an issue on GitHub
 
 ### Checklist
-Fill `item` dropdown
+- Fill `item` dropdown for items
 
-Improve UI formatting and color
+- Create online sourcing for dropdown libraries to reduce file size and make updates easier
 
-Create first release
+- Improve UI formatting and color
+
+- Add dark mode detection and themeing
+
+- Start creating simple CTM maker (custom blocks)
+
+- Start creating simple Model (.json) maker (held positions, gui positions, 3rd person)
+
+- Make .mcmeta maker (animated textures)
