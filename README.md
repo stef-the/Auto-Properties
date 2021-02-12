@@ -2,6 +2,14 @@
 Creates a .properties file for your Optifine CIT, based off of file input, to make texture packs a little easier to make. The script was built on **Python 3.8.2** and the GUI module used is **tkinter** (universally installed into python).
 
 Started Feb. 5, 2021
+
+## Requirements for CIT (1.8.9):
+- Latest Optifine version
+
+- Custom Items -> ON
+
+- Use a release of Forge or Optifine through the regular Minecraft launcher to fix issues
+
 ### How do I use it?
 - Choose what you want to make a file for
 
