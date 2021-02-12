@@ -114,9 +114,9 @@ def compileData():
     except:
         print('Error while creating file, look for:\n- blank name\n- duplicate file')
 
-
-
 compileBtn = tk.Button(master, text='Create File', command=compileData)
 compileBtn.grid(row=10, column=0, sticky=W)
+closeBtn = tk.Button(master, text='⌧', command=master.destroy)
+closeBtn.grid(row=10, column=1, sticky=W)
 
 master.mainloop()
