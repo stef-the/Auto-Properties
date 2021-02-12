@@ -13,7 +13,7 @@ armorText1 = Label(master, text='Outside Layer')
 
 m = tk.StringVar() 
 itemString = ttk.Combobox(master, width=18, textvariable=m) 
-itemString['values'] = ('Leather Armor', 'Chainmail Armor', 'Iron Armor', 'Gold Armor', 'Diamond Armor') 
+itemString['values'] = ('leather', 'chainmail', 'iron', 'gold', 'diamond') 
 itemString.grid(column = 1, row = 1) 
 itemString.current() 
 
@@ -39,7 +39,7 @@ identString.grid(row=7, column=1)
 weightString.grid(row=8, column=1)
 
 model = IntVar()
-Checkbutton(master, text="Model [.json]", variable=model).grid(row=4, sticky=W)
+Checkbutton(master, text="Unknown --", variable=model).grid(row=4, sticky=W)
 lore = IntVar()
 Checkbutton(master, text="Item Lore", variable=lore).grid(row=5, sticky=W)
 itemTitle = IntVar()
@@ -47,7 +47,7 @@ Checkbutton(master, text="Item Name", variable=itemTitle).grid(row=6, sticky=W)
 ident = IntVar()
 Checkbutton(master, text="Item ID", variable=ident).grid(row=7, sticky=W)
 weight = IntVar()
-Checkbutton(master, text="Item Weight", variable=weight).grid(row=8, sticky=W)
+Checkbutton(master, text="Unknown --", variable=weight).grid(row=8, sticky=W)
 
 image_name_0 = ''
 image_name_1 = ''
